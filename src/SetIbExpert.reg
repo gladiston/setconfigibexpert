@@ -1,0 +1,18 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\HK Software]
+
+[HKEY_CURRENT_USER\SOFTWARE\HK Software\IBExpert]
+
+[HKEY_CURRENT_USER\SOFTWARE\HK Software\IBExpert\CurrentData]
+"MultipleInstances"=dword:00000001
+"LastCompressDate"=hex:eb,59,24,8d,ac,98,e5,40
+"Interface"="MDI"
+"MainFormH"="394488"
+"AllowUDB"=dword:00000001
+"UDBConnectString"="D:\\Dev\\FirebirdSQL\\IbExpert-2020.04\\IBEXPERT_FB3.FDB"
+"UDBUserName"="SYSDBA"
+"UDBPassword"="masterkey"
+"UDBClientLib"="fbclient.dll"
+"NoSplash"=dword:00000001
+

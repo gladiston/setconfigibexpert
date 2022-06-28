@@ -1,0 +1,149 @@
+object fmPrincipal: TfmPrincipal
+  Left = 256
+  Height = 395
+  Top = 250
+  Width = 735
+  Caption = 'fmPrincipal'
+  ClientHeight = 395
+  ClientWidth = 735
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -16
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object pnlTitulo: TPanel
+    Left = 0
+    Height = 208
+    Top = 0
+    Width = 735
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 208
+    ClientWidth = 735
+    TabOrder = 0
+    object lblTitulo: TLabel
+      Left = 0
+      Height = 32
+      Top = 0
+      Width = 735
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Autoconfigurador do IBExpert'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -24
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object memoExplica: TMemo
+      Left = 0
+      Height = 176
+      Top = 32
+      Width = 735
+      Align = alClient
+      BorderStyle = bsNone
+      Lines.Strings = (
+        'Use este assistente para recuperar configurações do IbExpert usadas anteriormente. O IBExpert armazena suas configurações num banco de dados local, não apenas isso, mas também todas as conexões que você registrou.'
+      )
+      ReadOnly = True
+      ScrollBars = ssAutoBoth
+      TabOrder = 0
+    end
+  end
+  object gb_fb_versao: TRadioGroup
+    Left = 0
+    Height = 80
+    Top = 208
+    Width = 735
+    Align = alBottom
+    AutoFill = True
+    Caption = 'Versão do banco de dados usada no IbExpert para manter suas configurações:'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 54
+    ClientWidth = 731
+    Items.Strings = (
+      'Firebird 3'
+      'Firebird 4'
+    )
+    TabOrder = 1
+  end
+  object gbDatabase: TGroupBox
+    Left = 0
+    Height = 57
+    Top = 288
+    Width = 735
+    Align = alBottom
+    Caption = 'Localização do banco de dados com a configuração do IBExpert:'
+    ClientHeight = 31
+    ClientWidth = 731
+    TabOrder = 2
+    object BtnLocalizar: TBitBtn
+      Left = 700
+      Height = 23
+      Top = 4
+      Width = 27
+      Align = alRight
+      BorderSpacing.Around = 4
+      Caption = '...'
+      OnClick = BtnLocalizarClick
+      TabOrder = 0
+    end
+    object edtLocalizacao: TEdit
+      Left = 4
+      Height = 23
+      Top = 4
+      Width = 692
+      Align = alClient
+      BorderSpacing.Around = 4
+      BorderStyle = bsNone
+      ReadOnly = True
+      TabOrder = 1
+      Text = 'edtLocalizacao'
+    end
+  end
+  object pnlSave: TPanel
+    Left = 0
+    Height = 50
+    Top = 345
+    Width = 735
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 735
+    TabOrder = 3
+    object BtnSeIbExpert: TBitBtn
+      Left = 547
+      Height = 40
+      Top = 5
+      Width = 183
+      Align = alRight
+      BorderSpacing.Around = 4
+      Caption = 'Configurar IbExpert'
+      OnClick = BtnSeIbExpertClick
+      TabOrder = 0
+    end
+    object lblStatus: TLabel
+      Left = 1
+      Height = 48
+      Top = 1
+      Width = 542
+      Align = alClient
+      Caption = '(...)'
+      ParentColor = False
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Title = 'Selecionar o banco de dados'
+    DefaultExt = '.fdb'
+    Filter = 'Firebird Databases|*.fdb|Todos|*.*'
+    Left = 8
+    Top = 8
+  end
+end
