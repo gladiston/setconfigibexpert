@@ -1,11 +1,11 @@
 object fmPrincipal: TfmPrincipal
   Left = 256
-  Height = 395
+  Height = 504
   Top = 250
-  Width = 735
+  Width = 745
   Caption = 'fmPrincipal'
-  ClientHeight = 395
-  ClientWidth = 735
+  ClientHeight = 504
+  ClientWidth = 745
   Font.CharSet = ANSI_CHARSET
   Font.Height = -16
   Font.Pitch = fpVariable
@@ -14,34 +14,19 @@ object fmPrincipal: TfmPrincipal
   OnShow = FormShow
   object pnlTitulo: TPanel
     Left = 0
-    Height = 208
+    Height = 268
     Top = 0
-    Width = 735
+    Width = 745
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 208
-    ClientWidth = 735
+    ClientHeight = 268
+    ClientWidth = 745
     TabOrder = 0
-    object lblTitulo: TLabel
-      Left = 0
-      Height = 32
-      Top = 0
-      Width = 735
-      Align = alTop
-      Alignment = taCenter
-      Caption = 'Autoconfigurador do IBExpert'
-      Font.CharSet = ANSI_CHARSET
-      Font.Height = -24
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      ParentColor = False
-      ParentFont = False
-    end
     object memoExplica: TMemo
       Left = 0
-      Height = 176
-      Top = 32
-      Width = 735
+      Height = 268
+      Top = 0
+      Width = 745
       Align = alClient
       BorderStyle = bsNone
       Lines.Strings = (
@@ -52,41 +37,18 @@ object fmPrincipal: TfmPrincipal
       TabOrder = 0
     end
   end
-  object gb_fb_versao: TRadioGroup
-    Left = 0
-    Height = 80
-    Top = 208
-    Width = 735
-    Align = alBottom
-    AutoFill = True
-    Caption = 'Versão do banco de dados usada no IbExpert para manter suas configurações:'
-    ChildSizing.LeftRightSpacing = 6
-    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
-    ChildSizing.EnlargeVertical = crsHomogenousChildResize
-    ChildSizing.ShrinkHorizontal = crsScaleChilds
-    ChildSizing.ShrinkVertical = crsScaleChilds
-    ChildSizing.Layout = cclLeftToRightThenTopToBottom
-    ChildSizing.ControlsPerLine = 1
-    ClientHeight = 54
-    ClientWidth = 731
-    Items.Strings = (
-      'Firebird 3'
-      'Firebird 4'
-    )
-    TabOrder = 1
-  end
-  object gbDatabase: TGroupBox
+  object gb_UDBConnectString: TGroupBox
     Left = 0
     Height = 57
-    Top = 288
-    Width = 735
+    Top = 340
+    Width = 745
     Align = alBottom
-    Caption = 'Localização do banco de dados com a configuração do IBExpert:'
+    Caption = 'Localização do UserDatabase do IBExpert:'
     ClientHeight = 31
-    ClientWidth = 731
-    TabOrder = 2
+    ClientWidth = 741
+    TabOrder = 1
     object BtnLocalizar: TBitBtn
-      Left = 700
+      Left = 710
       Height = 23
       Top = 4
       Width = 27
@@ -96,30 +58,30 @@ object fmPrincipal: TfmPrincipal
       OnClick = BtnLocalizarClick
       TabOrder = 0
     end
-    object edtLocalizacao: TEdit
+    object UDBConnectString: TEdit
       Left = 4
       Height = 23
       Top = 4
-      Width = 692
+      Width = 702
       Align = alClient
       BorderSpacing.Around = 4
       BorderStyle = bsNone
       ReadOnly = True
       TabOrder = 1
-      Text = 'edtLocalizacao'
+      Text = 'UDBConnectString'
     end
   end
   object pnlSave: TPanel
     Left = 0
     Height = 50
-    Top = 345
-    Width = 735
+    Top = 454
+    Width = 745
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 735
-    TabOrder = 3
+    ClientWidth = 745
+    TabOrder = 2
     object BtnSeIbExpert: TBitBtn
-      Left = 547
+      Left = 557
       Height = 40
       Top = 5
       Width = 183
@@ -133,10 +95,136 @@ object fmPrincipal: TfmPrincipal
       Left = 1
       Height = 48
       Top = 1
-      Width = 542
+      Width = 552
       Align = alClient
       Caption = '(...)'
       ParentColor = False
+    end
+  end
+  object pnl_area1: TPanel
+    Left = 0
+    Height = 72
+    Top = 268
+    Width = 745
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 72
+    ClientWidth = 745
+    TabOrder = 3
+    object gb_fb_versao: TRadioGroup
+      Left = 0
+      Height = 72
+      Hint = 'Versão do banco de dados usada no IbExpert para manter suas configurações:'
+      Top = 0
+      Width = 443
+      Align = alClient
+      AutoFill = True
+      Caption = 'UserDatabase do IBExpert usando a versão'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 46
+      ClientWidth = 439
+      Items.Strings = (
+        'Firebird 3'
+        'Firebird 4'
+      )
+      OnClick = gb_fb_versaoClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object gb_Interface: TRadioGroup
+      Left = 443
+      Height = 72
+      Hint = 'Versão do banco de dados usada no IbExpert para manter suas configurações:'
+      Top = 0
+      Width = 187
+      Align = alRight
+      AutoFill = True
+      Caption = 'IBExpert em MDI ou SDI?'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 46
+      ClientWidth = 183
+      ItemIndex = 0
+      Items.Strings = (
+        'MDI'
+        'SDI'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object gb_splash: TRadioGroup
+      Left = 630
+      Height = 72
+      Hint = 'Versão do banco de dados usada no IbExpert para manter suas configurações:'
+      Top = 0
+      Width = 115
+      Align = alRight
+      AutoFill = True
+      Caption = 'Splash Screen?'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 46
+      ClientWidth = 111
+      ItemIndex = 0
+      Items.Strings = (
+        'Não'
+        'Sim'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+  end
+  object gb_UDBClientLib: TGroupBox
+    Left = 0
+    Height = 57
+    Top = 397
+    Width = 745
+    Align = alBottom
+    Caption = 'Localização da FBClient padrão'
+    ClientHeight = 31
+    ClientWidth = 741
+    TabOrder = 4
+    object BtnLocalizar1: TBitBtn
+      Left = 710
+      Height = 23
+      Top = 4
+      Width = 27
+      Align = alRight
+      BorderSpacing.Around = 4
+      Caption = '...'
+      OnClick = BtnLocalizar1Click
+      TabOrder = 0
+    end
+    object UDBClientLib: TEdit
+      Left = 4
+      Height = 23
+      Top = 4
+      Width = 702
+      Align = alClient
+      BorderSpacing.Around = 4
+      BorderStyle = bsNone
+      ReadOnly = True
+      TabOrder = 1
+      Text = 'UDBClientLib'
     end
   end
   object OpenDialog1: TOpenDialog
